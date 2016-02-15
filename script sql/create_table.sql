@@ -1,0 +1,26 @@
+CREATE DATABASE fiveware;
+
+USE fiveware;
+
+CREATE TABLE Address (
+  id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  country VARCHAR NULL,
+  city VARCHAR NULL,
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE Person (
+  id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  Address_id INTEGER UNSIGNED NOT NULL,
+  NAME VARCHAR NULL,
+  email VARCHAR NULL,
+  gender VARCHAR NULL,
+  martimartialStatus VARCHAR NULL,
+  PRIMARY KEY(id),
+  INDEX Person_FKIndex1(Address_id),
+  FOREIGN KEY(Address_id)
+    REFERENCES Address(id)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION
+);
+
